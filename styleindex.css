@@ -1,0 +1,175 @@
+/* Reset et styles de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #fff;
+}
+
+/* Titre principal */
+h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+    font-weight: bold;
+    letter-spacing: 2px;
+    animation: fadeInDown 1s ease-out;
+}
+
+/* Paragraphe de bienvenue */
+p {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Navigation */
+nav {
+    width: 100%;
+    max-width: 1400px;
+}
+
+/* Liste des liens */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+}
+
+nav li {
+    position: relative;
+}
+
+/* Liens avec images */
+nav a {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    transition: transform 0.3s ease;
+}
+
+/* Images des drapeaux */
+nav a img {
+    width: 120px;
+    height: 120px;
+    border: 0px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    object-fit: contain;
+    /* Animation de rebondissement constant */
+    animation: bounce 2s ease-in-out infinite;
+}
+
+/* Effet de zoom au survol */
+nav a:hover img {
+    transform: scale(1.2);
+    border-color: #fff;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    animation-play-state: paused;
+}
+
+/* Texte sous l'image */
+nav a::after {
+    content: attr(data-lang);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.95);
+    color: #667eea;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease, bottom 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+nav a:hover::after {
+    opacity: 1;
+    bottom: -35px;
+}
+
+/* Animation de rebondissement */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+/* Animation d'apparition du titre */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation d'apparition du texte */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Délai d'animation pour chaque image */
+nav li:nth-child(1) a img { animation-delay: 0s; }
+nav li:nth-child(2) a img { animation-delay: 0.1s; }
+nav li:nth-child(3) a img { animation-delay: 0.2s; }
+nav li:nth-child(4) a img { animation-delay: 0.3s; }
+nav li:nth-child(5) a img { animation-delay: 0.4s; }
+nav li:nth-child(6) a img { animation-delay: 0.5s; }
+nav li:nth-child(7) a img { animation-delay: 0.6s; }
+nav li:nth-child(8) a img { animation-delay: 0.7s; }
+nav li:nth-child(9) a img { animation-delay: 0.8s; }
+
+/* Responsive */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    
+    p {
+        font-size: 1.2rem;
+    }
+    
+    nav a img {
+        width: 80px;
+        height: 80px;
+    }
+    
+    nav ul {
+        gap: 20px;
+    }
+}
